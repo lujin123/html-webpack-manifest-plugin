@@ -1,0 +1,22 @@
+{
+  "name": "html-webpack-manifest-plugin",
+  "version": "1.0.0",
+  "description": "自动生成一个manifest的`html-webpack-plugin`插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lujin123/html-webpack-manifest-plugin.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lujin123/html-webpack-manifest-plugin/issues"
+  },
+  "homepage": "https://github.com/lujin123/html-webpack-manifest-plugin#readme",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
