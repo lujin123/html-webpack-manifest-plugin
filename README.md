@@ -6,7 +6,9 @@
 
 插件会同时生成需要尺寸的`favicon`
 
-**这个插件我是在用了好几个自动生成 favicon 的插件之后非常不满意，比如[这个](https://github.com/itgalaxy/favicons),这么多 star，但是连基本的 manifest 需要的字段都能丢了，pr 也不合并，只能自己来了**
+**目前只支持了 webpack4+，因为 4 以下的钩子没有挂，所以不能用，懒得写了，就这样吧，自己能用就行了**
+
+**这个插件我是在用了好几个自动生成 favicon 的插件之后非常不满意，比如[这个](https://github.com/itgalaxy/favicons),这么多 star，但是连基本的 manifest 需要的字段都能丢了，pr 也不合并，只能自己来了，当然只是满足了我自己需求，其他的不考虑了**
 
 ## 使用
 
