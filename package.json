@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lujin123/html-webpack-manifest-plugin#readme",
   "dependencies": {
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "sharp": "^0.20.5"
   }
 }
