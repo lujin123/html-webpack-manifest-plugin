@@ -38,13 +38,11 @@ function genManifest(manifest, compilation, iconFiles) {
     const hashLength = m[2]
     const hashObj = crypto.createHash('md5').update(manifestJson)
     const fullHash = hashObj.digest('hex')
-    console.log('fullHash ==>', fullHash)
     let fileHash = fullHash
     if (hashLength) {
       fileHash = fullHash.substr(0, hashLength)
     }
     fileName = fileName.replace(/\[.*\]/, fileHash)
-    console.log('\nfileName ==>', fileName)
   }
   let outputPath = path.resolve(filePath, fileName)
   compilation.assets[outputPath] = {
@@ -94,7 +92,6 @@ HtmlWebpackManifestPlugin.prototype.apply = function (compiler) {
         .tapAsync(PLUGIN_NAME, function (htmlPluginData, cb) {
           // 生成一个manifest
           const manifest = that.options.manifest
-          console.log('manifest =>', manifest)
           if (manifest) {
             // 生成favicons
             const icons = manifest.icons
@@ -149,28 +146,17 @@ HtmlWebpackManifestPlugin.prototype.apply = function (compiler) {
 
       compilation.hooks.htmlWebpackPluginAlterAssetTags
         .tapAsync(PLUGIN_NAME, function (htmlPluginData, cb) {
-          // gen link
-          const linkGroup = that.options.linkGroup
-          if (linkGroup) {
-            linkGroup.map(function (group) {
-              const groupAttrs = group.attributes
-              const attr = group.attr || 'href'
-              const groupTags = group.links.map(function (link) {
-                let attributes = {}
-                if (typeof link === 'string') {
-                  attributes[attr] = link
-                  attributes = _.merge({}, groupAttrs, attributes)
-                } else {
-                  attributes = _.merge({}, groupAttrs, link)
-                }
+          const head = that.options.head
+          if (head) {
+            Object.keys(head).map(key => {
+              const tags = head[key].map(item => {
                 return {
-                  tagName: 'link',
+                  tagName: key,
                   closeTag: false,
-                  attributes: attributes
+                  attributes: item
                 }
-                return tag
               })
-              htmlPluginData.head = htmlPluginData.head.concat(groupTags)
+              htmlPluginData.head = htmlPluginData.head.concat(tags)
             })
           }
 

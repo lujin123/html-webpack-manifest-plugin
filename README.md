@@ -50,23 +50,31 @@ module.exports = {
                 }
             },
             // 这里主要配置生成head中的一些链接，按照规则自动生成并inject
-            linkGroup: [{
-                attr: 'href',
-                attributes: {
+            head: {
+                meta: [{
+                        charset: 'utf-8'
+                    },
+                    {
+                        name: 'viewport',
+                        content: 'width=device-width, initial-scale=1'
+                    },
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Meta description'
+                    }
+                ],
+                link: [{
                     rel: 'dns-prefetch',
-                },
-                links: [
-                    'https://cdn.com/'
-                ]
-            }, {
-                attr: 'href',
-                attributes: {
-                    rel: 'preconnect'
-                },
-                links: [
-                    'https://cdn.com/',
-                ]
-            }]
+                    href: 'https://d15lz63ykon5oa.cloudfront.net'
+                }, {
+                    rel: 'dns-prefetch',
+                    href: 'https://d14rk0dlif47fw.cloudfront.net'
+                }, {
+                    rel: 'preconnect',
+                    href: 'https://d1n1fwner8zc14.cloudfront.net/'
+                }]
+            }
         })
     ]
 }
